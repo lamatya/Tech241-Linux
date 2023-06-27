@@ -121,3 +121,53 @@ Mongo DB Commands
     14.  sudo systemctl enable mongod:- Enables the MongoDB service to start on system boot.
 
      15.  sudo systemctl status mongod:- Checks the status of the MongoDB service once more.
+
+
+To run the bash script to run the sparta app Task 1
+
+
+#!/bin/bash
+
+# update
+ sudo apt update -y
+
+# upgrade
+sudo apt upgrade -y
+
+# install nginx
+sudo apt install nginx -y
+
+# restart nginx
+sudo systemctl restart nginx
+
+# enable nginx - enable makes sure when your vm is restarted it boots up again the nginx will automatically start
+sudo systemctl enable nginx   # enable nginx - will auto start or reboot
+
+# start nginx
+#sudo systemctl start nginx
+
+# restart nginx
+#sudo systemctl restart nginx
+
+# install node.js (corect version)
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install node.js -y
+sudo apt update -y
+#sudo npm install -g pm2
+
+# copying app folder to the Virtual Machine
+git clone https://github.com/jungjinggg.tech241_sparta_app.git app2
+
+# running Sparta test app
+cd /app2/app
+npm install -y
+
+# to start the app
+#pm2 start app.js --name "sparta app"
+node app.js
+
+
+Blocker- 
+
+My VM was working but when I used the script it was showing error preventing me from running the app, I had to try few times changing my script to make it work. I will complete my Task 2 as soon as I get the Task 1 running. 
