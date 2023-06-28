@@ -170,4 +170,81 @@ node app.js
 
 Blocker- 
 
-My VM was working but when I used the script it was showing error preventing me from running the app, I had to try few times changing my script to make it work. I will complete my Task 2 as soon as I get the Task 1 running. 
+My VM was working but when I used the script it was showing error preventing me from running the app, I had to try few times changing my script to make it work. I will 
+complete my Task 2 as soon as I get the Task 1 running. 
+
+
+To Run the sparta app steps
+
+
+Update Source List: This step updates the package source list on the system. The source list contains information about available packages and their locations.
+
+Upgrade Packages: This step upgrades all the installed packages on the system to their latest versions.
+
+Install Nginx: Nginx is a popular web server. This step installs Nginx on the system.
+
+Start Nginx and Enable on Boot: These steps start Nginx and configure it to start automatically on system boot.
+
+Restart Nginx: This step restarts Nginx to apply any changes made to its configuration.
+
+Download Node.js: This step uses curl to download the Node.js setup script from the NodeSource repository.
+
+Set DB_HOST Environment Variable: This step sets the environment variable DB_HOST with the value mongodb://20.162.217.4:27017/posts. Environment variables are used to store configuration settings for applications.
+
+Install Node.js: This step installs Node.js on the system using the downloaded setup script.
+
+Update Source List: This step updates the package source list again after installing Node.js.
+
+Install pm2: This step installs the process manager pm2 globally using npm. pm2 is used to manage and run Node.js applications.
+
+Clone GitHub Repository: This step clones the GitHub repository https://github.com/jungjinggg/tech241_sparta_app into a directory named app2.
+
+Change to App Directory: This step navigates into the app2/app directory.
+
+Install Node.js Dependencies: This step installs the dependencies required by the Node.js application using npm install -y.
+
+Start Application with pm2: This step starts the Node.js application app.js using pm2 and assigns it the name "sparta app".
+
+These steps collectively set up the system by installing Nginx and Node.js, cloning a specific GitHub repository, installing dependencies, and starting the Node.js application using pm2.
+
+## To run the db
+
+Update: This step updates the package lists for upgrades and installations.
+
+Upgrade: This step upgrades all the installed packages on the system to their latest versions.
+
+Install MongoDB: This step adds the MongoDB GPG key to the system and adds the MongoDB repository to the package sources list. Then it updates the package lists again to include MongoDB packages.
+
+Install MongoDB packages: This step installs specific versions of MongoDB packages with version 3.2.20.
+
+Configure MongoDB to listen on all IPs: This step modifies the MongoDB configuration files and replaces the bindIp setting from 127.0.0.1 (localhost) to 0.0.0.0 (all available network interfaces). This allows MongoDB to listen for connections from any IP address.
+
+Start MongoDB: This step starts the MongoDB service using systemctl.
+
+Enable MongoDB on boot: This step configures MongoDB to start automatically on system boot using systemctl.
+
+The script updates the system, installs MongoDB, modifies the configuration to allow connections from any IP address, starts the MongoDB service, and enables it to start on system boot.
+
+
+## Reverse Proxy
+
+1. A port are communication endpoints used to establish network connections. 
+
+2. A reverse proxy is a server that acts as an intermediary between client devices and web servers. It receives client requests and forwards them to the appropriate backend server. 
+
+3. A reverse proxy distributes client requests to backend servers based on factors like load balancing, caching, or security. It provides a single entry point for clients to access multiple servers. In contrast, a proxy server acts as an intermediary between client devices and web servers. It can handle requests on behalf of clients, often used for caching or filtering purposes.
+
+4.Nginx, a popular web server and reverse proxy server, uses a configuration file located in the "sites-available" directory. By default, Nginx is installed with a basic configuration that serves static files. To set up a reverse proxy, additional configuration needs to be added.
+
+Setting Up an Nginx Reverse Proxy:
+
+To set up an Nginx reverse proxy, you can follow these general steps:
+- Open the Nginx configuration file.
+
+- Replace the existing configuration with the following lines:
+
+    a. Specify the location you want to proxy requests from.
+    
+    b. Set the backend server's IP address and port where your web application is running.
+
+-Save the file and check for syntax errors.
